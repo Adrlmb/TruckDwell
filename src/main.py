@@ -1,9 +1,5 @@
-import tkinter as tk
-from truckdwell.gui.app import Application
+from truckdwell.gui.app import App
 
-if __name__ == "__main_":
-  root = tk.Tk()
-  root.geometry('700x285+600+200')
-  root.resizable(False, False)
-  app = Application(root)
-  root.mainloop()
+if __name__ == "__main__":
+    app = App()
+    app.mainloop()
