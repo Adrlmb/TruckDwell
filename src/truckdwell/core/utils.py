@@ -22,3 +22,34 @@ def limparDados(self):
     self.inputFornecedor.focus()  # Puxa o foco para o campo Fornecedor
 
 
+def importar_pdf(self):
+    caminho = filedialog.askopenfilename(initialdir="src/tickets de pesagem/",
+                                         title= "Selecione um arquivo",
+                                         filetypes=[("PDF", "*.pdf")])
+    if caminho:
+        dados = extrair_dados_pdf(caminho)
+        self.produto.set(dados['produto'])
+        self.transportadora.set(dados['transportadora'])
+        self.nf.set(dados['nf'])
+        self.peso.set(dados['peso'])
+        self.dataHoraSaida.set(dados['dataHoraSaida'])
+
+def emitir_estadia(self):
+    caminho_modelo = "truckdwell/assets/modelo_estadia.xlsx"
+    caminho_saida = filedialog.asksaveasfilename(defaultextension=".xlsx",
+                                                 filetypes=[("Excel", "*.xlsx")])
+    dados = {
+        'produto': self.produto.get(),
+        'transportadora': self.transportadora.get(),
+        'nf': self.nf.get(),
+        'peso': self.peso.get(),
+        'dataHoraSaida': self.dataHoraSaida.get(),
+        'fornecedor': self.fornecedor.get(),
+        'motorista': self.motorista.get(),
+        'cte': self.cte.get(),
+        'dataHoraChegada': self.dataHoraChegada.get(),
+        'motivo': self.motivo.get()
+
+    }
+    preencher_planilha(caminho_modelo, dados, caminho_saida)
+    messagebox.showinfo("Sucesso", "Planilha gerada com sucesso!")
