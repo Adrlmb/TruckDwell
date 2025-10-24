@@ -18,6 +18,14 @@ def extrair_dados_pdf(caminho_pdf):
     }
     return dados
 
+
+def formatarDataHora(text):
+    data = text[3].split(' ')[3].replace('.', '/')
+    hora = text[3].split(' ')[4].split(':')[0]
+    minutos = text[3].split(' ')[4].split(':')[1]
+
+    return data + ' ' + hora + ':' + minutos
+
 # Funções auxiliares
 def formatar_produto(codigo):
     produtos = ['ROCHA UMA', 'KCL 00-00-58 GR', 'CAL DOLO HIDRATADA', 'SSP 00-19-00',
