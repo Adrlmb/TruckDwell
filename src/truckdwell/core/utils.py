@@ -35,7 +35,7 @@ def importar_pdf(self):
         self.dataHoraSaida.set(dados['dataHoraSaida'])
 
 def emitir_estadia(self):
-    caminho_modelo = "truckdwell/assets/modelo_estadia.xlsx"
+    caminho_modelo = "truckdwell/assets/planilha_estadia.xlsx"
     caminho_saida = filedialog.asksaveasfilename(defaultextension=".xlsx",
                                                  filetypes=[("Excel", "*.xlsx")])
     dados = {
