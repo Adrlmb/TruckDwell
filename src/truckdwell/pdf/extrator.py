@@ -14,7 +14,7 @@ def extrair_dados_pdf(caminho_pdf):
         "transportadora": formatar_transportadora(referencia_transportadora),
         "nf": text[6].split(' ')[2],
         "peso": text[5].split(": ")[1],
-        "dataHoraSaida": text[3].split(' ')[3] + ' ' + text[3].split(' ')[4]
+        "dataHoraSaida": formatarDataHora(text)
     }
     return dados
 
