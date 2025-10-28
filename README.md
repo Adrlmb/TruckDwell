@@ -134,5 +134,5 @@ git commit -m "Adiciona nova funcionalidade"
 
 ## 📜 Licença
 
-Este projeto é licenciado sob a [MIT License](https://opensource.org/licenses/MIT).  
+Este projeto é licenciado sob a [MIT License](./LICENSE).  
 Sinta-se livre para usar, modificar e contribuir.
