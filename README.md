@@ -8,6 +8,7 @@
 **TruckDwell** é uma aplicação desenvolvida em **Python** voltada ao controle, análise e visualização do **tempo de permanência de caminhões** em áreas de carga e descarga.  
 O objetivo é auxiliar equipes logísticas a monitorar o fluxo de caminhões, otimizar tempos de operação e gerar relatórios analíticos de desempenho.
 
+![apresentacao_truckdwell](https://github.com/user-attachments/assets/9d12f18a-5578-4f38-9070-6c38351d7148)
 ---
 
 ## 🧭 Sumário
