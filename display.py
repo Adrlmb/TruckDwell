@@ -84,7 +84,7 @@ class Application():
             campoFornecedor = self.inputFornecedor.get().upper()  # Fornecedor
             campoCte = self.inputCte.get()  # Ct-e
             campoMotorista = self.inputMotorista.get().upper()  # Motorista
-            campoMotivos = self.inputMotivo.get().upper()  # Motivo, vai se iniciar com "MOTIVO: " e concatenar com o real motivo da estadia
+            campoMotivos = self.inputMotivo.get().upper()  # Motivo, vai se iniciar com "MOTIVO: " e concatenar com o real motivo da estadias_calculadas
 
             campos = [campoFornecedor, campoTransportadora, campoMotorista, campoProduto, campoEntrada, campoSaida,
                       campoCte, campoNumeroNF, campoPesoNF, campoMotivos]
@@ -103,7 +103,7 @@ class Application():
             preencherPlanilha()
 
         def preencherPlanilha():
-            wb = load_workbook('estadia\Cálculo estadia.xlsx')  # Carrega o arquivo existente
+            wb = load_workbook('estadias_calculadas\Cálculo estadias_calculadas.xlsx')  # Carrega o arquivo existente
             planilha = wb.active  # Seleciona a planilha ativa
 
             # Pega os dados dos inputs e coloca na planilha de acordo com a célula referenciada
@@ -117,7 +117,7 @@ class Application():
             planilha['F4'] = self.inputCte.get()  # Ct-e
             planilha['F5'] = self.inputMotorista.get().upper()  # Motorista
             planilha[
-                'E16'] = 'MOTIVO: ' + self.inputMotivo.get().upper()  # Motivo, vai se iniciar com "MOTIVO: " e concatenar com o real motivo da estadia
+                'E16'] = 'MOTIVO: ' + self.inputMotivo.get().upper()  # Motivo, vai se iniciar com "MOTIVO: " e concatenar com o real motivo da estadias_calculadas
 
             salvarPlanilha(wb)
 
