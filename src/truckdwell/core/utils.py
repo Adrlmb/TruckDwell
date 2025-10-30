@@ -36,7 +36,8 @@ def importar_pdf(self):
 
 def emitir_estadia(self):
     caminho_modelo = "truckdwell/assets/planilha_estadia.xlsx"
-    caminho_saida = filedialog.asksaveasfilename(defaultextension=".xlsx",
+    caminho_saida = filedialog.asksaveasfilename(initialdir= "../estadias_calculadas/",
+                                                 defaultextension=".xlsx",
                                                  filetypes=[("Excel", "*.xlsx")])
     dados = {
         'produto': self.produto.get(),
