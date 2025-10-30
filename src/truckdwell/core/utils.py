@@ -23,7 +23,7 @@ def limparDados(self):
 
 
 def importar_pdf(self):
-    caminho = filedialog.askopenfilename(initialdir="src/tickets de pesagem/",
+    caminho = filedialog.askopenfilename(initialdir="truckdwell/assets/tickets_de_balanca/",
                                          title= "Selecione um arquivo",
                                          filetypes=[("PDF", "*.pdf")])
     if caminho:
