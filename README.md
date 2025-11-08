@@ -18,11 +18,8 @@ O objetivo é auxiliar equipes logísticas a monitorar o fluxo de caminhões, ot
 03. [Como Executar](#-como-executar)
 04. [Funcionalidades](#-funcionalidades)
 05. [Tecnologias](#-tecnologias)
-06. [Melhorias Planejadas](#-melhorias-planejadas)
-07. [Contribuição](#-contribuição)
-08. [Licença](#-licença)
-09. [Contato](#-contato)
-10. [Arquitetura Lógica do Sistema](#-arquitetura-lógica-do-sistema)
+06. [Contribuição](#-contribuição)
+07. [Licença](#-licença)
 
 ---
 
@@ -42,11 +39,6 @@ TruckDwell/
 ├── README.md # Este arquivo 
 └── .idea/ # Metadados da IDE (pode ser ignorado)
 ```
-
-
-> 💡 **Sugestão:** manter apenas `src/` como ponto de código-fonte e mover arquivos externos (dados, builds) para pastas versionadas separadamente.
-
----
 
 ## ⚙️ Instalação
 
@@ -74,11 +66,6 @@ pip install -r requirements.txt
 python src/main.py
 ```
 
-* Ou, se desejar rodar via interface alternativa:
-```
-python display.py
-```
-
 ## 📊 Funcionalidades
 * ✅ Registro e controle de tempo de permanência de caminhões
 
@@ -90,29 +77,16 @@ python display.py
 
 * ✅ Base modular, fácil de refatorar e expandir
 
+
 ## 🧱 Tecnologias
 
-| Camada          | Ferramentas / Tecnologias       |
+| Camada          | Ferramentas / Tecnologias      |
 |-----------------|--------------------------------|
 | Linguagem       | Python 3.10+                   |
-| Bibliotecas     | pandas, datetime, matplotlib   |
+| Bibliotecas     | tkinter, pdfplumber, openpyxl  |
 | IDE Recomendada | PyCharm ou VSCode              |
-| Armazenamento   | CSV / base local               |
-| Deploy          | Local, Docker (planejado)      |
+| Armazenamento   | Local (arquivos .xlsx)         |
 
-
-## 🔧 Melhorias Planejadas
- - [ ] Criar testes automatizados com pytest
-
- - [ ] Implementar logs e tratamento de erros
-
- - [ ] Documentar cada módulo (docstrings e Sphinx)
-
- - [ ] Estruturar CI/CD com GitHub Actions
-
- - [ ] Padronizar pastas (src/, data/, tests/)
-
- - [ ] Adicionar versionamento semântico e tags (v1.0.0)
 
 ## 🤝 Contribuição
 Contribuições são muito bem-vindas! 💡
