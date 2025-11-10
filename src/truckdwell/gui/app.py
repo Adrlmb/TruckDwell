@@ -10,7 +10,16 @@ class App(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("Cálculo de Estadia")
-        self.geometry("700x285")
+
+        janela_largura = 700
+        janela_altura = 285
+
+        tela_largura = self.winfo_screenwidth()
+        tela_altura = self.winfo_screenheight()
+
+        pos_x = (tela_largura // 2) - (janela_largura // 2)
+        pos_y = (tela_altura // 2 ) - (janela_altura // 2 + 200)
+        self.geometry(f"{janela_largura}x{janela_altura}+{pos_x}+{pos_y}")
         self.resizable(False, False)
 
         # Variáveis
