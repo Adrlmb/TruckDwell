@@ -40,16 +40,16 @@ def emitir_estadia(self):
                                                  defaultextension=".xlsx",
                                                  filetypes=[("Excel", "*.xlsx")])
     dados = {
-        'produto': self.produto.get(),
-        'transportadora': self.transportadora.get(),
-        'nf': self.nf.get(),
-        'peso': self.peso.get(),
-        'dataHoraSaida': self.dataHoraSaida.get(),
-        'fornecedor': self.fornecedor.get(),
-        'motorista': self.motorista.get(),
-        'cte': self.cte.get(),
-        'dataHoraChegada': self.dataHoraChegada.get(),
-        'motivo': self.motivo.get()
+        'produto': self.produto.get().upper(),
+        'transportadora': self.transportadora.get().upper(),
+        'nf': self.nf.get().upper(),
+        'peso': self.peso.get().upper(),
+        'dataHoraSaida': self.dataHoraSaida.get().upper(),
+        'fornecedor': self.fornecedor.get().upper(),
+        'motorista': self.motorista.get().upper(),
+        'cte': self.cte.get().upper(),
+        'dataHoraChegada': self.dataHoraChegada.get().upper(),
+        'motivo': self.motivo.get().upper()
 
     }
     preencher_planilha(caminho_modelo, dados, caminho_saida)
