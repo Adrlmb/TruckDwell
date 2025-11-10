@@ -36,6 +36,20 @@ class App(tk.Tk):
 
         self.criar_widgets()
 
+    def criar_campo(self, container, texto, var, width = 30, tipo ="entry", opcoes =None):
+        label = Label(container, text=texto, font=self.fontePadrao)
+        label.pack(side=LEFT)
+
+        if tipo == "combobox" and opcoes:
+            input_widget = ttk.Combobox(container, textvariable = var, values = sorted(opcoes),
+                                        width = width, font = self.fontePadrao)
+        else:
+            input_widget = Entry(container, textvariable = var, width = width, font = self.fontePadrao)
+
+        input_widget.pack(side = LEFT)
+        return input_widget
+
+
     def criar_widgets(self):
         self.fontePadrao = ("Arial", "10")
 
