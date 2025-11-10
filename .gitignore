@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 *.pyo
 *.pyd
+*.pyc
 
 # ---- Ambientes virtuais ----
 .venv/
@@ -16,3 +17,6 @@ venv.bak/
 # ---- Arquivos de build e distribuição ----
 build/
 dist/
+
+# IDEs e editores
+.idea/
