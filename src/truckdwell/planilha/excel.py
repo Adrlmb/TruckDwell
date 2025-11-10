@@ -14,7 +14,7 @@ def preencher_planilha(caminho_modelo, dados, caminho_saida):
     planilha['C3'] = dados['fornecedor']
     planilha['F4'] = dados['cte']
     planilha['F5'] = dados['motorista']
-    planilha['E16'] = dados['motivo']
+    planilha['E16'] = "MOTIVO: " + dados['motivo']
 
     wb.save(caminho_saida)
     wb.close()
