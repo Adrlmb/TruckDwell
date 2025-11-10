@@ -53,147 +53,94 @@ class App(tk.Tk):
     def criar_widgets(self):
         self.fontePadrao = ("Arial", "10")
 
-        self.container1 = Frame(self)
-        self.container1["pady"] = 10
+        # Containers
+
+        self.container1 = Frame(self, pady = 10)
         self.container1.pack()
 
-        self.container2 = Frame(self)
-        self.container2["padx"] = 20
-        self.container2["pady"] = 5
+        self.container2 = Frame(self, padx=20, pady=5)
         self.container2.pack()
 
-        self.container3 = Frame(self)
-        self.container3["padx"] = 20
-        self.container3["pady"] = 5
+        self.container3 = Frame(self, padx=20, pady=5)
         self.container3.pack()
 
-        self.container4 = Frame(self)
-        self.container4["padx"] = 20
-        self.container4["pady"] = 5
+        self.container4 = Frame(self, padx=20, pady=5)
         self.container4.pack()
 
-        self.container5 = Frame(self)
-        self.container5["padx"] = 20
-        self.container5["pady"] = 5
+        self.container5 = Frame(self, padx=20, pady=5)
         self.container5.pack()
 
-        self.container6 = Frame(self)
-        self.container6["padx"] = 20
-        self.container6["pady"] = 5
+        self.container6 = Frame(self, padx=20, pady=5)
         self.container6.pack()
 
-        self.container7 = Frame(self)
-        self.container7["padx"] = 20
-        self.container7["pady"] = 5
+        self.container7 = Frame(self, padx=20, pady=5)
         self.container7.pack()
 
-        self.labels(self.container1, self.container2, self.container3, self.container4, self.container5, self.container6,
-                    self.fontePadrao)
-        self.buttons(self.container7, self.fontePadrao)
+        self.labels()
+        self.buttons()
 
-    def labels(self, container1, container2, container3, container4, container5, container6, fontePadrao):
+
+    def labels(self):
         # Titulo
-        self.title = Label(container1, text="Calculo de Estadia")
-        self.title["font"] = ("Calibri", "20", "bold")
-        self.title.pack()
+        Label(self.container1, text="Cálculo de Estadia", font=("Calibri", 20, "bold")).pack()
 
+        # Campos
         # Nome do Fornecedor
-        self.labelFornecedor = Label(container2, text="Fornecedor ", font=fontePadrao)
-        self.labelFornecedor.pack(side=LEFT)
-
-        self.inputFornecedor = Entry(container2, textvariable= self.fornecedor, width=30, font=fontePadrao)
+        self.inputFornecedor = self.criar_campo(self.container2, "Fornecedor ", self.fornecedor)
         self.inputFornecedor.focus()
-        self.inputFornecedor.pack(side=LEFT)
+
 
         # Transportadora
-        self.labelTransportadora = Label(container2, text="Transportadora ", font=fontePadrao)
-        self.labelTransportadora.pack(side=LEFT)
-
         transportadorasCadastradas = ['MINERACAO BELOCAL', 'CARVALHO TRANSPORTES', 'FRIBON TRANSPORTES',
                                       'FUTURO LOGISTICA',
                                       'SIMOES BEBEDOURO', 'TRANSLOPES TRANSPORTES']
         transportadorasCadastradas.sort()
 
-        self.inputTransportadora = ttk.Combobox(container2, textvariable=  self.transportadora,
-                                                values=transportadorasCadastradas, width=30, font=fontePadrao)
-        self.inputTransportadora.pack(side=LEFT)
+        self.inputTransportadora = self.criar_campo(self.container2, "Transportadora", self.transportadora,
+                                                    tipo= "combobox", opcoes = transportadorasCadastradas)
 
-        # Nome do Motorista
-        self.labelMotorista = Label(container3, text="Nome do Motorista ", font=fontePadrao)
-        self.labelMotorista.pack(side=LEFT)
+        # Motorista
+        self.inputMotorista = self.criar_campo(self.container3, "Nome do Motorista ", self.motorista)
 
-        self.inputMotorista = Entry(container3, textvariable= self.motorista, width=30, font=fontePadrao)
-        self.inputMotorista.pack(side=LEFT)
 
-        # Nome do Produto
-        self.labelProduto = Label(container3, text="Produto ", font=fontePadrao)
-        self.labelProduto.pack(side=LEFT)
-
+        # Produtos
         produtosCadastrados = ['ROCHA UMA', 'ROCHA CMISS', 'KCL 00-00-58 GR', 'CAL DOLO HIDRATADA', 'SSP 00-19-00',
                                'KCL 00-00-60 GR IMP', 'MAP 11-52-00 GR', 'MICRO HMoNi', 'ENXOFRE F IMP.']
         produtosCadastrados.sort()
-        self.inputProduto = ttk.Combobox(container3, textvariable= self.produto, values=produtosCadastrados, width=30,
-                                         font=fontePadrao)
-        self.inputProduto.pack(side=LEFT)
+        self.inputProduto = self.criar_campo(self.container3, "Produto ", self.produto, tipo = "combobox", opcoes = produtosCadastrados)
+
 
         # Data e Hora de Chegada
-        self.labelDataHoraChegada = Label(container4, text="Data/Hora de Chegada ", font=fontePadrao)
-        self.labelDataHoraChegada.pack(side=LEFT)
+        self.inputDataHoraChegada = self.criar_campo(self.container4, "Data/Hora de Chegada ", self.dataHoraChegada, width = 20)
 
-        self.inputDataHoraChegada = Entry(container4, textvariable= self.dataHoraChegada, width=20, font=fontePadrao)
-        self.inputDataHoraChegada.pack(side=LEFT)
 
         # Data e Hora de Saída
-        self.labelDataHoraSaida = Label(container4, text="Data/Hora de Saída ", font=fontePadrao)
-        self.labelDataHoraSaida.pack(side=LEFT)
-
-        self.inputDataHoraSaida = Entry(container4, textvariable= self.dataHoraSaida, width=20, font=fontePadrao)
-        self.inputDataHoraSaida.pack(side=LEFT)
+        self.inputDataHoraSaida = self.criar_campo(self.container4, "Data/Hora de Saída ", self.dataHoraSaida, width = 20)
 
         # Número do CT-e
-        self.labelCte = Label(container5, text="Número do CT-e ", font=fontePadrao)
-        self.labelCte.pack(side=LEFT)
+        self.inputCte = self.criar_campo(self.container5, "CT-e ", self.cte, width=10)
 
-        self.inputCte = Entry(container5, textvariable= self.cte, width=10, font=fontePadrao)
-        self.inputCte.pack(side=LEFT)
 
         # Número da NF
-        self.labelNf = Label(container5, text="Número da NF ", font=fontePadrao)
-        self.labelNf.pack(side=LEFT)
-
-        self.inputNF = Entry(container5, textvariable= self.nf, width=10, font=fontePadrao)
-        self.inputNF.pack(side=LEFT)
+        self.inputNF = self.criar_campo(self.container5, "NF-e ", self.nf, width =10)
 
         # Peso da NF
-        self.labelPeso = Label(container5, text="Peso da NF ", font=fontePadrao)
-        self.labelPeso.pack(side=LEFT)
+        self.inputPeso = self.criar_campo(self.container5, "Peso ", self.peso, width= 10)
 
-        self.inputPeso = Entry(container5, textvariable= self.peso, width=10, font=fontePadrao)
-        self.inputPeso.pack(side=LEFT)
 
         # Motivo da Estadia
-        self.labelMotivo = Label(container6, text="Motivo da Estadia ", font=fontePadrao)
-        self.labelMotivo.pack(side=LEFT)
+        self.inputMotivo = self.criar_campo(self.container6, "Motivo da Estadia", self.motivo, width = 60)
 
-        self.inputMotivo = Entry(container6, textvariable= self.motivo, width=60, font=fontePadrao)
-        self.inputMotivo.pack(side=LEFT)
 
-    def buttons(self, container7, fontePadrao):
+    def buttons(self):
 
-        # Button - Chama a função que limpa todos os campos
-        self.btnInput = Button(container7, text="Novo", font=fontePadrao, width=20,
-                               command= lambda: limparDados(self))
-        self.btnInput.pack(side=LEFT)
+        # Botão "Novo" - Chama a função que limpa todos os campos
+        Button(self.container7, text= "Novo", font= self.fontePadrao, width = 20, command= lambda: limparDados(self)).pack(side= LEFT)
 
-        # Button - Chama a função que extrai os campos do PDF
-        self.btnBuscar = Button(container7, text="Importar PDF", font=fontePadrao, width=20,
-                                command= lambda: importar_pdf(self))
-        self.btnBuscar.pack(side=LEFT)
+        # Botão "Importar PDF" - Chama a função que extrai os campos do PDF
+        Button(self.container7, text= "Importar PDF", font= self.fontePadrao, width=20, command= lambda: importar_pdf(self)).pack(side= LEFT)
 
-        # Button - Chama a função que salva dados do input
-        self.btnInput = Button(container7, text="Emitir Estadia", font=fontePadrao, width=20,
-                               command= lambda: emitir_estadia(self))
-        self.btnInput.pack(side=RIGHT)
-        self.btnInput.place()
+        # Botão "Emitir Estadia" - Chama a função que salva dados do input
+        Button(self.container7, text= "Emitir Estadia", font= self.fontePadrao, width=20, command= lambda: emitir_estadia(self)).pack(side= LEFT)
 
 
