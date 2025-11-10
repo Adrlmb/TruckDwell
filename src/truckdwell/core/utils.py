@@ -35,22 +35,32 @@ def importar_pdf(self):
         self.dataHoraSaida.set(dados['dataHoraSaida'])
 
 def emitir_estadia(self):
-    caminho_modelo = "truckdwell/assets/planilha_estadia.xlsx"
-    caminho_saida = filedialog.asksaveasfilename(initialdir= "../estadias_calculadas/",
-                                                 defaultextension=".xlsx",
-                                                 filetypes=[("Excel", "*.xlsx")])
+
     dados = {
-        'produto': self.produto.get().upper(),
+        'fornecedor': self.fornecedor.get().upper(),
         'transportadora': self.transportadora.get().upper(),
+        'motorista': self.motorista.get().upper(),
+        'produto': self.produto.get().upper(),
+        'dataHoraChegada': self.dataHoraChegada.get().upper(),
+        'dataHoraSaida': self.dataHoraSaida.get().upper(),
+        'cte': self.cte.get().upper(),
         'nf': self.nf.get().upper(),
         'peso': self.peso.get().upper(),
-        'dataHoraSaida': self.dataHoraSaida.get().upper(),
-        'fornecedor': self.fornecedor.get().upper(),
-        'motorista': self.motorista.get().upper(),
-        'cte': self.cte.get().upper(),
-        'dataHoraChegada': self.dataHoraChegada.get().upper(),
         'motivo': self.motivo.get().upper()
-
     }
+
+    for chave, valor in dados.items():
+        if valor == "":
+            messagebox.showwarning("Aviso", f"Preencha o campo '{chave.upper()}' antes de continuar.")
+            campo_input = getattr(self, f"input{chave.capitalize()}", None)
+            if campo_input:
+                campo_input.focus()
+            return
+
+    caminho_modelo = "truckdwell/assets/planilha_estadia.xlsx"
+    caminho_saida = filedialog.asksaveasfilename(initialdir="../estadias_calculadas/",
+                                                 defaultextension=".xlsx",
+                                                 filetypes=[("Excel", "*.xlsx")])
+
     preencher_planilha(caminho_modelo, dados, caminho_saida)
     messagebox.showinfo("Sucesso", "Planilha gerada com sucesso!")
