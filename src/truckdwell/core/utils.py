@@ -1,6 +1,6 @@
 from tkinter import END, filedialog, messagebox
-from src.truckdwell.pdf.extrator import extrair_dados_pdf
-from src.truckdwell.planilha.excel import preencher_planilha
+from truckdwell.pdf.extrator import extrair_dados_pdf
+from truckdwell.planilha.excel import preencher_planilha
 
 def limparDados(self):
     campos = [

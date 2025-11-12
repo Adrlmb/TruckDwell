@@ -1,10 +1,9 @@
 import tkinter as tk
 from tkinter import *
-from tkinter import filedialog, messagebox, ttk
+from tkinter import ttk
 
-from core.utils import emitir_estadia
-from src.truckdwell.planilha.excel import preencher_planilha
-from src.truckdwell.core.utils import limparDados, importar_pdf
+from truckdwell.core.utils import emitir_estadia
+from truckdwell.core.utils import limparDados, importar_pdf
 
 class App(tk.Tk):
     def __init__(self):
